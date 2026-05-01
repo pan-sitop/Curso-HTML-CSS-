@@ -1,0 +1,156 @@
+:root {
+    --bg-dark: #0f0f14;
+    --cat-blue: #4142F5;
+    --lime-green: #C3FB34;
+    --text-main: #ffffff;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    padding: 20px;
+}
+
+.layout-revista {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 250px 1fr 1fr;
+    grid-template-rows: 80px auto 60px;
+    grid-template-areas: 
+        "header header header"
+        "sidebar main main"
+        "footer footer footer";
+    min-height: 90vh;
+}
+
+.header {
+    grid-area: header;
+    background: var(--cat-blue);
+    padding: 20px 30px;
+    border-radius: 10px;
+    font-family: 'Lexend', sans-serif;
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--lime-green);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-back {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    text-decoration: none;
+    background-color: var(--bg-dark);
+    color: var(--lime-green);
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: 1px solid var(--lime-green);
+    transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+    background-color: var(--lime-green);
+    color: var(--bg-dark);
+    box-shadow: 0 0 10px rgba(195, 251, 52, 0.4);
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background: rgba(65, 66, 245, 0.1);
+    border: 2px dashed var(--cat-blue);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.sidebar h3 {
+    font-family: 'Lexend', sans-serif;
+    color: var(--lime-green);
+    margin-top: 0;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.sidebar li:hover {
+    color: var(--lime-green);
+}
+
+.main {
+    grid-area: main;
+}
+
+.footer {
+    grid-area: footer;
+    background: var(--cat-blue);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.articulos-grid {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));    
+}
+
+article {
+    background: rgba(65, 66, 245, 0.1);
+    border: 1px solid var(--lime-green);
+    border-radius: 10px;
+    padding: 20px;
+    min-height: 150px;
+    transition: transform 0.3s ease;
+}
+
+article:hover {
+    transform: translateY(-5px);
+    background: rgba(65, 66, 245, 0.2);
+}
+
+article h2 {
+    font-family: 'Lexend', sans-serif;
+    margin-top: 0;
+}
+
+.destacados {
+    grid-column: span 2;
+    background: var(--lime-green);
+    color: var(--bg-dark);
+}
+
+.destacados h2 {
+    color: var(--bg-dark);
+}
+
+@media (max-width: 768px) {
+    .layout-revista {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "header"
+            "sidebar"
+            "main"
+            "footer";
+        grid-template-rows: auto auto auto auto;
+    }
+    
+    .header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .destacados {
+        grid-column: span 1;
+    }
+}
